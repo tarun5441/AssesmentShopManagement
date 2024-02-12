@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Table(name="category")
+@Table(name="shop_category")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +23,7 @@ public class Category {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<Product> products = new ArrayList<>();
+// Bidirectional mapping making an infinite case
+//    @OneToMany(mappedBy = "product_id", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    private List<Product> productlist=new ArrayList<>();
 }

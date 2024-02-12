@@ -1,15 +1,15 @@
 package com.example.AssesmentShopManagement.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data //only for getters and setters
 @Table(name = "shop_product")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Product {
     @Id
     @GeneratedValue
@@ -21,4 +21,7 @@ public class Product {
     private int price;
     @Column(name = "product_description")
     private String description;
+    @ManyToOne()
+    @JoinColumn(name = "prod_id")
+    private Category category;
 }
